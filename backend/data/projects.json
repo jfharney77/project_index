@@ -1,0 +1,146 @@
+[
+  {
+    "id": "f074735a-e4ec-4141-94f0-08c6b2c75ed9",
+    "name": "research_papers",
+    "path": "/home/john/github/research_papers",
+    "summary": "**Summary:**\nThe research_papers project is a repository of LaTeX templates and sample documents for academic conference submissions. It provides templates for various conferences such as IEEE, NeurIPS, ACM, and AAAI, along with scripts to build the documents.\n\n**How to Run:**\n\nTo run this project, you can follow these instructions:\n\n1. **Windows (build.bat):**\n\t* Install TeX Live or MiKTeX and ensure `pdflatex` and `bibtex` commands are available in your PATH.\n\t* Open a Command Prompt and run:\n```bat\nscript\\latex\\<conference>\\build.bat\n```\n\t* Replace `<conference>` with the desired conference template (e.g., ieee, neurips, acm, or aaai).\n\n2. **WSL/Linux/macos (build.sh):**\n\t* Install TeX Live via your package manager.\n\t* Run:\n```bash\nbash script/latex/<conference>/build.sh\n```\n\t* Replace `<conference>` with the desired conference template.\n\nYou can also run the scripts from inside the `script` directory or pass a custom source path as an argument.",
+    "how_to_run": "See project README for run instructions.",
+    "metadata": {
+      "total_files": 64,
+      "total_lines": 9076,
+      "total_size_bytes": 307038,
+      "languages": [
+        {
+          "language": "JSON",
+          "files": 7,
+          "lines": 3457,
+          "percentage": 38.1
+        },
+        {
+          "language": "Python",
+          "files": 29,
+          "lines": 2973,
+          "percentage": 32.8
+        },
+        {
+          "language": "Markdown",
+          "files": 13,
+          "lines": 1222,
+          "percentage": 13.5
+        },
+        {
+          "language": "Shell",
+          "files": 7,
+          "lines": 668,
+          "percentage": 7.4
+        },
+        {
+          "language": "CSS",
+          "files": 2,
+          "lines": 378,
+          "percentage": 4.2
+        },
+        {
+          "language": "TypeScript",
+          "files": 3,
+          "lines": 325,
+          "percentage": 3.6
+        },
+        {
+          "language": "JavaScript",
+          "files": 1,
+          "lines": 22,
+          "percentage": 0.2
+        },
+        {
+          "language": "TOML",
+          "files": 1,
+          "lines": 18,
+          "percentage": 0.2
+        },
+        {
+          "language": "HTML",
+          "files": 1,
+          "lines": 13,
+          "percentage": 0.1
+        }
+      ],
+      "predominant_language": "JSON",
+      "last_commit_date": "2026-05-09T00:23:37-04:00",
+      "default_branch": "devel-apip-word2l",
+      "num_commits": 14,
+      "num_contributors": 1
+    },
+    "indexed_at": "2026-05-10T11:05:12.723758",
+    "last_refreshed": "2026-05-10T11:05:12.723767"
+  },
+  {
+    "id": "3aff9600-3eec-4880-989f-2c8ef7242f3e",
+    "name": "wikimania",
+    "path": "/home/john/github/wikimania",
+    "summary": "The wikimania project appears to be a web application that provides information and tools related to AI, machine learning, and natural language processing. It likely includes a frontend and backend, with the frontend written in JavaScript (using React) and the backend using Python. The project also seems to have features for uploading files, querying data, and visualizing graphs.",
+    "how_to_run": "To run this project, you will need to first set up the environment by running `scripts/start.sh` to start the services. This script likely sets up the Docker containers for both the frontend and backend. Once started, you can access the application through a web interface (likely at http://localhost:3000). The README file is not present, so additional documentation or instructions may be needed to fully utilize the application's features.",
+    "metadata": {
+      "total_files": 36,
+      "total_lines": 7831,
+      "total_size_bytes": 289087,
+      "languages": [
+        {
+          "language": "JSON",
+          "files": 2,
+          "lines": 3417,
+          "percentage": 43.6
+        },
+        {
+          "language": "Python",
+          "files": 7,
+          "lines": 1874,
+          "percentage": 23.9
+        },
+        {
+          "language": "JavaScript",
+          "files": 11,
+          "lines": 1213,
+          "percentage": 15.5
+        },
+        {
+          "language": "Markdown",
+          "files": 7,
+          "lines": 794,
+          "percentage": 10.1
+        },
+        {
+          "language": "CSS",
+          "files": 1,
+          "lines": 289,
+          "percentage": 3.7
+        },
+        {
+          "language": "Shell",
+          "files": 6,
+          "lines": 148,
+          "percentage": 1.9
+        },
+        {
+          "language": "YAML",
+          "files": 1,
+          "lines": 84,
+          "percentage": 1.1
+        },
+        {
+          "language": "HTML",
+          "files": 1,
+          "lines": 12,
+          "percentage": 0.2
+        }
+      ],
+      "predominant_language": "JSON",
+      "last_commit_date": "2026-05-06T22:29:39-04:00",
+      "default_branch": "aws-clean-deploy",
+      "num_commits": 31,
+      "num_contributors": 1
+    },
+    "indexed_at": "2026-05-10T11:06:06.563194",
+    "last_refreshed": "2026-05-10T11:06:06.563202"
+  }
+]

@@ -3,7 +3,7 @@
     "id": "f074735a-e4ec-4141-94f0-08c6b2c75ed9",
     "name": "research_papers",
     "path": "/home/john/github/research_papers",
-    "summary": "**Summary:**\nThe research_papers project is a repository of LaTeX templates and sample documents for academic conference submissions. It provides templates for various conferences such as IEEE, NeurIPS, ACM, and AAAI, along with scripts to build the documents.\n\n**How to Run:**\n\nTo run this project, you can follow these instructions:\n\n1. **Windows (build.bat):**\n\t* Install TeX Live or MiKTeX and ensure `pdflatex` and `bibtex` commands are available in your PATH.\n\t* Open a Command Prompt and run:\n```bat\nscript\\latex\\<conference>\\build.bat\n```\n\t* Replace `<conference>` with the desired conference template (e.g., ieee, neurips, acm, or aaai).\n\n2. **WSL/Linux/macos (build.sh):**\n\t* Install TeX Live via your package manager.\n\t* Run:\n```bash\nbash script/latex/<conference>/build.sh\n```\n\t* Replace `<conference>` with the desired conference template.\n\nYou can also run the scripts from inside the `script` directory or pass a custom source path as an argument.",
+    "summary": "**Summary:**\nThe research_papers project is a repository of LaTeX templates and sample documents for academic conference submissions. It provides templates for conferences such as IEEE, NeurIPS, ACM, and AAAI, along with scripts to build and generate the documents.\n\n**How to Run:**\n\nTo run this project:\n\n1. For Windows (using `build.bat`):\n\t* Install TeX Live or MiKTeX.\n\t* Run `pdflatex --version` and `bibtex --version` in Command Prompt to verify installations.\n\t* Run `script\\latex\\<conference>\\build.bat` from the repository root, or run it from inside the `script\\latex\\<conference>` directory. You can also pass a custom source path as an argument.\n\nOR\n\n2. For WSL/Linux/macOS (using `build.sh`):\n\t* Install TeX Live via your package manager.\n\t* Run `pdflatex --version` and `bibtex --version` to verify installations.\n\t* Run `bash script/latex/<conference>/build.sh` from the repository root, or make it executable and run it directly. You can also pass a custom source path as an argument.\n\nFor both options:\n\n\t* The first time you run the script, it will automatically download and extract the NeurIPS style file for the current year.\n\t* Update the `STYLE_YEAR` and `STYLE_URL` variables at the top of each script to reflect changes in the NeurIPS style files.",
     "how_to_run": "See project README for run instructions.",
     "metadata": {
       "total_files": 64,
@@ -69,17 +69,29 @@
       "last_commit_date": "2026-05-09T00:23:37-04:00",
       "default_branch": "devel-apip-word2l",
       "num_commits": 14,
-      "num_contributors": 1
+      "num_contributors": 1,
+      "remote_origin": "git@github.com:jfharney77/research_papers.git",
+      "branches": [
+        "devel",
+        "devel-apip",
+        "devel-apip-word2l",
+        "main",
+        "remotes/origin/devel",
+        "remotes/origin/devel-apip",
+        "remotes/origin/devel-apip-word2l",
+        "remotes/origin/main"
+      ],
+      "improvements": null
     },
     "indexed_at": "2026-05-10T11:05:12.723758",
-    "last_refreshed": "2026-05-10T11:05:12.723767"
+    "last_refreshed": "2026-05-14T20:28:12.037727"
   },
   {
-    "id": "3aff9600-3eec-4880-989f-2c8ef7242f3e",
+    "id": "e31ce7cf-2d2b-448f-b250-f3ed3dbf3e39",
     "name": "wikimania",
     "path": "/home/john/github/wikimania",
-    "summary": "The wikimania project appears to be a web application that provides information and tools related to AI, machine learning, and natural language processing. It likely includes a frontend and backend, with the frontend written in JavaScript (using React) and the backend using Python. The project also seems to have features for uploading files, querying data, and visualizing graphs.",
-    "how_to_run": "To run this project, you will need to first set up the environment by running `scripts/start.sh` to start the services. This script likely sets up the Docker containers for both the frontend and backend. Once started, you can access the application through a web interface (likely at http://localhost:3000). The README file is not present, so additional documentation or instructions may be needed to fully utilize the application's features.",
+    "summary": "The Wikimania project appears to be a web application that provides access to information and tools for working with wikis. It likely includes features such as browsing, querying, and uploading content, as well as administrative functions like user management. The presence of machine learning (ML) and natural language processing (NLP) components suggests that the app may also provide AI-powered tools for analyzing and generating wiki content.",
+    "how_to_run": "1. Clone the project repository using `git clone https://github.com/<your_username>/wikimania.git`\n2. Install dependencies in the frontend directory by running `npm install` or `yarn install`\n3. Build the frontend application by running `npx vite build`\n4. Start the backend service by running `python backend/main.py`\n5. Start the frontend application by running `node scripts/start.sh` (or `nodemon` if installed)\n6. Access the web app at `http://localhost:3000` or as configured in your local environment\n\nNote: The project's deployment and CI/CD pipeline configuration files suggest that this project is likely to be deployed on AWS, but these instructions do not cover the specific steps for deployment.",
     "metadata": {
       "total_files": 36,
       "total_lines": 7831,
@@ -135,12 +147,295 @@
         }
       ],
       "predominant_language": "JSON",
-      "last_commit_date": "2026-05-06T22:29:39-04:00",
+      "last_commit_date": "2026-05-13T14:08:57-04:00",
       "default_branch": "aws-clean-deploy",
-      "num_commits": 31,
-      "num_contributors": 1
+      "num_commits": 32,
+      "num_contributors": 1,
+      "remote_origin": "git@github.com:jfharney77/wikimania.git",
+      "branches": [
+        "aws-clean-deploy",
+        "aws-deployment",
+        "devel",
+        "main",
+        "remotes/gitlab/aws-clean-deploy",
+        "remotes/gitlab/aws-deployment",
+        "remotes/origin/aws-clean-deploy",
+        "remotes/origin/aws-deployment",
+        "remotes/origin/devel",
+        "remotes/origin/main"
+      ],
+      "improvements": null
     },
-    "indexed_at": "2026-05-10T11:06:06.563194",
-    "last_refreshed": "2026-05-10T11:06:06.563202"
+    "indexed_at": "2026-05-14T20:28:10.142291",
+    "last_refreshed": "2026-05-14T20:31:06.791855"
+  },
+  {
+    "id": "f6aeb13f-cb97-4b8f-b020-6f1ee09f48f7",
+    "name": "gitlab_railway_practice",
+    "path": "/home/john/gitlab/gitlab_railway_practice",
+    "summary": "**\nThe gitlab-railway-practice project appears to be a software development project that utilizes GitLab CI/CD and other tools for continuous integration, testing, and deployment. The project likely consists of multiple components, including a backend and frontend, with supporting files such as Dockerfiles, configuration files, and test suites.\n\n**",
+    "how_to_run": "**\nTo get started with the project, you can follow these steps:\n\n1. Clone the repository using GitLab's web editor or command line.\n2. Set up the environment variables for the backend by creating a `.env` file or using an existing one.\n3. Run the `start_all.sh` script to start all services, including the frontend and backend.\n4. Use the scripts (e.g., `start_backend.sh`, `stop_all.sh`) to manage the services as needed.\n\nNote that this is just a summary based on the provided information, and actual steps may vary depending on the specific project structure and requirements.",
+    "metadata": {
+      "total_files": 23,
+      "total_lines": 5155,
+      "total_size_bytes": 170489,
+      "languages": [
+        {
+          "language": "JSON",
+          "files": 2,
+          "lines": 3549,
+          "percentage": 68.8
+        },
+        {
+          "language": "YAML",
+          "files": 2,
+          "lines": 413,
+          "percentage": 8.0
+        },
+        {
+          "language": "CSS",
+          "files": 1,
+          "lines": 372,
+          "percentage": 7.2
+        },
+        {
+          "language": "JavaScript",
+          "files": 6,
+          "lines": 254,
+          "percentage": 4.9
+        },
+        {
+          "language": "Markdown",
+          "files": 3,
+          "lines": 215,
+          "percentage": 4.2
+        },
+        {
+          "language": "Python",
+          "files": 2,
+          "lines": 188,
+          "percentage": 3.6
+        },
+        {
+          "language": "Shell",
+          "files": 4,
+          "lines": 136,
+          "percentage": 2.6
+        },
+        {
+          "language": "TOML",
+          "files": 2,
+          "lines": 16,
+          "percentage": 0.3
+        },
+        {
+          "language": "HTML",
+          "files": 1,
+          "lines": 12,
+          "percentage": 0.2
+        }
+      ],
+      "predominant_language": "JSON",
+      "last_commit_date": "2026-05-04T20:55:41-04:00",
+      "default_branch": "feature/aws-s3-cdn",
+      "num_commits": 31,
+      "num_contributors": 1,
+      "remote_origin": null,
+      "branches": [
+        "feature/aws-apprunner",
+        "feature/aws-s3-cdn",
+        "main",
+        "remotes/github/main",
+        "remotes/origin/feature/aws-apprunner",
+        "remotes/origin/feature/aws-s3-cdn",
+        "remotes/origin/main"
+      ],
+      "improvements": [
+        "Here are three specific, actionable improvements for the codebase:",
+        "The project lacks a clear architecture and modularity. To improve this, I suggest creating separate repositories or submodules for each part of the project (backend, frontend, etc.), and defining clear interfaces and dependencies between them.",
+        "To improve reliability, I recommend implementing a robust logging system throughout the application, using a consistent logging format across all parts of the codebase. This will help with debugging and issue tracking."
+      ]
+    },
+    "indexed_at": "2026-05-14T20:46:07.983548",
+    "last_refreshed": "2026-05-14T20:46:07.983558"
+  },
+  {
+    "id": "0e4deb2f-325c-4a73-8031-f245c291f1ea",
+    "name": "key_manager",
+    "path": "/home/john/github/key_manager",
+    "summary": "The key_manager project is a software application that provides a comprehensive key management system. It likely includes features for generating and managing cryptographic keys, storing them securely in a database, and possibly providing APIs or user interfaces for creating, reading, updating, and deleting (CRUD) key operations.",
+    "how_to_run": "1. Install the required dependencies by running `pip install -r requirements.txt` in the project root directory.\n2. Run the backend server using `scripts/run.sh`.\n3. Stop the backend server using `scripts/stop.sh`.\n4. To interact with the application, access the frontend UI at `http://localhost:port_number/index.html` (note: the port number may need to be changed in the scripts).\n5. The project's cryptographic and database functionality can likely be accessed through APIs or command-line tools, but specific instructions for these will depend on the implementation details of the project.",
+    "metadata": {
+      "total_files": 17,
+      "total_lines": 2637,
+      "total_size_bytes": 83766,
+      "languages": [
+        {
+          "language": "Python",
+          "files": 11,
+          "lines": 994,
+          "percentage": 37.7
+        },
+        {
+          "language": "JavaScript",
+          "files": 1,
+          "lines": 694,
+          "percentage": 26.3
+        },
+        {
+          "language": "CSS",
+          "files": 1,
+          "lines": 508,
+          "percentage": 19.3
+        },
+        {
+          "language": "HTML",
+          "files": 1,
+          "lines": 222,
+          "percentage": 8.4
+        },
+        {
+          "language": "Markdown",
+          "files": 1,
+          "lines": 177,
+          "percentage": 6.7
+        },
+        {
+          "language": "Shell",
+          "files": 2,
+          "lines": 42,
+          "percentage": 1.6
+        }
+      ],
+      "predominant_language": "Python",
+      "last_commit_date": "2026-05-08T14:05:32-04:00",
+      "default_branch": "main",
+      "num_commits": 9,
+      "num_contributors": 1,
+      "remote_origin": null,
+      "branches": [
+        "main",
+        "remotes/origin/main"
+      ],
+      "improvements": [
+        "Introduce a separate configuration file to manage sensitive settings. Currently, the project relies on environment variables or hardcoded values in the codebase. This makes it difficult to manage and maintain sensitive settings such as API keys or database credentials. By introducing a separate configuration file, you can decouple configuration management from the code and ensure that sensitive information is properly encrypted and stored.",
+        "Improve error handling and logging across the project. While there may be some logging statements present in certain files, there is no centralized error handling or logging mechanism in place. This makes it difficult to diagnose issues when they arise. By introducing a robust logging framework and error handling mechanisms, you can improve the overall reliability of the project and provide better insights into errors that occur.",
+        "Organize the backend codebase into separate subpackages for CRUD operations, cryptographic functions, and database interactions. Currently, the backend code is quite monolithic, with a single `__init__.py` file containing most of the functionality. By breaking out these different concerns into separate packages, you can improve the organization and maintainability of the codebase, making it easier to develop and test new features independently."
+      ]
+    },
+    "indexed_at": "2026-05-14T20:49:15.165323",
+    "last_refreshed": "2026-05-14T20:49:15.165331"
+  },
+  {
+    "id": "64c1be51-d433-4a2d-947e-c1403d91ded9",
+    "name": "context_visualizer",
+    "path": "/home/john/github/context_visualizer",
+    "summary": "The context_visualizer project is a software application that appears to be a data visualization tool for analyzing and presenting contextual information. It seems to integrate data from multiple sources, such as GitHub, GitLab, and AWS ECS, and provides various parsers (e.g., Claude, LangFuse, LangGraph) to process this data. The application has both backend and frontend components.",
+    "how_to_run": "To run the context_visualizer project, start by navigating to the root directory of the project. Then, follow these steps:\n\n1. Start the backend by running `scripts/start_backend.sh` from the terminal.\n2. Start the frontend by running `scripts/start_frontend.sh` from a separate terminal window.\n3. You can stop both the backend and frontend services using the `scripts/stop_all.sh` script.\n\nNote that you may need to configure environment variables, such as those in `.env.example`, depending on your specific setup.",
+    "metadata": {
+      "total_files": 39,
+      "total_lines": 6421,
+      "total_size_bytes": 255761,
+      "languages": [
+        {
+          "language": "JSON",
+          "files": 5,
+          "lines": 2052,
+          "percentage": 32.0
+        },
+        {
+          "language": "Python",
+          "files": 13,
+          "lines": 1783,
+          "percentage": 27.8
+        },
+        {
+          "language": "Markdown",
+          "files": 6,
+          "lines": 1440,
+          "percentage": 22.4
+        },
+        {
+          "language": "JavaScript",
+          "files": 9,
+          "lines": 1016,
+          "percentage": 15.8
+        },
+        {
+          "language": "Shell",
+          "files": 4,
+          "lines": 105,
+          "percentage": 1.6
+        },
+        {
+          "language": "CSS",
+          "files": 1,
+          "lines": 13,
+          "percentage": 0.2
+        },
+        {
+          "language": "HTML",
+          "files": 1,
+          "lines": 12,
+          "percentage": 0.2
+        }
+      ],
+      "predominant_language": "JSON",
+      "last_commit_date": "2026-05-13T16:08:51-04:00",
+      "default_branch": "main",
+      "num_commits": 9,
+      "num_contributors": 1,
+      "remote_origin": null,
+      "branches": [
+        "main",
+        "remotes/origin/main"
+      ],
+      "improvements": [
+        "The project lacks a README file, which is crucial for documentation and onboarding new team members. I recommend creating a comprehensive README that includes an overview of the project's purpose, architecture, and usage instructions.",
+        "The directory structure suggests a mix of legacy files and newer components. To improve maintainability and organization, I suggest creating separate folders for each component or feature, with clear naming conventions (e.g., `core`, `legacy`, `integrations`). This will help developers quickly locate relevant code and reduce the risk of conflicts between different versions.",
+        "The presence of multiple parsers and agents raises concerns about coupling and scalability. To improve reliability and security, I recommend introducing a clear interface for each parser or agent, allowing them to be swapped out or replaced independently. This can be achieved by defining strict interfaces (e.g., using an abstract base class) and ensuring that each component is loosely coupled with the rest of the system."
+      ]
+    },
+    "indexed_at": "2026-05-14T20:50:42.654929",
+    "last_refreshed": "2026-05-14T20:50:42.654938"
+  },
+  {
+    "id": "e5d39df3-677e-4771-9a9f-634b82b4e65d",
+    "name": "lcmg",
+    "path": "/home/john/github/lcmg",
+    "summary": "The lcmg project appears to be a simple documentation or information hub containing only one file, the README.md. The purpose of this project is unclear, but it may serve as a brief introduction or overview for something else.",
+    "how_to_run": "To use this project, simply open the README.md file and read its contents. There are no executable files or commands to run, as this appears to be a static documentation-only project.",
+    "metadata": {
+      "total_files": 1,
+      "total_lines": 1,
+      "total_size_bytes": 6,
+      "languages": [
+        {
+          "language": "Markdown",
+          "files": 1,
+          "lines": 1,
+          "percentage": 100.0
+        }
+      ],
+      "predominant_language": "Markdown",
+      "last_commit_date": "2026-02-09T08:33:05-05:00",
+      "default_branch": "main",
+      "num_commits": 1,
+      "num_contributors": 1,
+      "remote_origin": "github.com/jfharney77/lcmg.git",
+      "branches": [
+        "main",
+        "remotes/origin/devel",
+        "remotes/origin/main",
+        "remotes/origin/mp"
+      ],
+      "improvements": [
+        "Introduce a separate configuration file to store environment-specific settings. Currently, there is no mechanism to handle different environments (e.g., dev, prod), which may lead to errors or inconsistencies when deploying the application. A configuration file can be used to define environment-specific variables and simplify the process of switching between environments.",
+        "Implement proper error handling and logging mechanisms. The current codebase seems to lack robust error handling and logging. This can make it difficult to diagnose issues when they arise. Introducing a logging library (e.g., Log4j) and implementing try-catch blocks for error handling can help improve the application's reliability and debuggability.",
+        "Consider introducing a dependency management system (e.g., Maven, Gradle). The current project structure appears to be a single, monolithic codebase. As the project grows, it may become difficult to manage dependencies and versions of third-party libraries. A dependency management system can help simplify the process of managing dependencies and ensure consistency across different environments."
+      ]
+    },
+    "indexed_at": "2026-05-14T20:52:32.114093",
+    "last_refreshed": "2026-05-14T20:52:32.114102"
   }
 ]

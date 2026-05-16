@@ -25,6 +25,9 @@ class ProjectMetadata(BaseModel):
     default_branch: str = ""
     num_commits: int = 0
     num_contributors: int = 0
+    remote_origin: Optional[str] = None
+    branches: Optional[list[str]] = None
+    improvements: Optional[list[str]] = None
 
 
 class Project(BaseModel):

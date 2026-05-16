@@ -15,6 +15,9 @@ export interface ProjectMetadata {
   default_branch: string;
   num_commits: number;
   num_contributors: number;
+  remote_origin: string | null;
+  branches: string[] | null;
+  improvements: string[] | null;
 }
 
 export interface Project {

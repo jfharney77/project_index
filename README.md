@@ -17,25 +17,33 @@ ollama serve
 ollama pull llama3
 ```
 
-### 2. Start the Backend
+### 2. Install dependencies
 
 ```bash
-cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+cd backend && python -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+cd frontend && npm install
 ```
 
-### 3. Start the Frontend
+### 3. Start the app
 
 ```bash
-cd frontend
-npm install
-npm run dev
+./scripts/run-all.sh
 ```
 
 The app will be available at **http://localhost:5173**
+
+To stop:
+
+```bash
+./scripts/stop-all.sh
+```
+
+#### Run services individually
+
+```bash
+./scripts/run-backend.sh   # FastAPI on :8000
+./scripts/run-frontend.sh  # Vite dev server on :5173
+```
 
 ## Usage
 

@@ -1,4 +1,4 @@
-import { ArrowLeft, RefreshCw, GitBranch, Users, GitCommitHorizontal } from 'lucide-react';
+import { ArrowLeft, RefreshCw, GitBranch, Users, GitCommitHorizontal, Link } from 'lucide-react';
 import { Project } from '../types';
 
 interface Props {
@@ -76,6 +76,12 @@ export function ProjectDetail({ project, onBack, onRefresh }: Props) {
           <GitCommitHorizontal size={16} className="text-gray-400" />
           <span>Last commit: <strong>{project.metadata.last_commit_date ? new Date(project.metadata.last_commit_date).toLocaleDateString() : 'Unknown'}</strong></span>
         </div>
+        {project.metadata.remote_origin && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Link size={16} className="text-gray-400" />
+            <span>Remote: <strong className="font-mono">{project.metadata.remote_origin}</strong></span>
+          </div>
+        )}
       </div>
 
       <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
@@ -89,6 +95,48 @@ export function ProjectDetail({ project, onBack, onRefresh }: Props) {
           {project.how_to_run || 'No run instructions available.'}
         </pre>
       </div>
+
+      {project.metadata.improvements && project.metadata.improvements.length > 0 && (
+        <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Suggested Improvements</h2>
+          <ol className="space-y-4">
+            {project.metadata.improvements.map((item, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold flex items-center justify-center mt-0.5">
+                  {i + 1}
+                </span>
+                <p className="text-sm text-gray-700 leading-relaxed">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {project.metadata.branches && project.metadata.branches.length > 0 && (
+        <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">
+            Branches
+            <span className="ml-2 text-sm font-normal text-gray-400">({project.metadata.branches.length})</span>
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {project.metadata.branches.map((branch) => (
+              <span
+                key={branch}
+                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${
+                  branch === project.metadata.default_branch
+                    ? 'bg-blue-100 text-blue-700'
+                    : branch.startsWith('remotes/')
+                    ? 'bg-gray-100 text-gray-500'
+                    : 'bg-green-50 text-green-700'
+                }`}
+              >
+                <GitBranch size={10} />
+                {branch}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-3">Languages</h2>

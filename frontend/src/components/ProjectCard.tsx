@@ -1,4 +1,4 @@
-import { Code2, GitBranch, Clock, FileCode, Trash2, RefreshCw } from 'lucide-react';
+import { Code2, GitBranch, Clock, FileCode, Trash2, RefreshCw, Link } from 'lucide-react';
 import { Project } from '../types';
 
 interface Props {
@@ -24,6 +24,12 @@ export function ProjectCard({ project, onSelect, onDelete, onRefresh }: Props) {
         <div className="flex-1 min-w-0">
           <h3 className="text-lg font-semibold text-gray-900 truncate">{project.name}</h3>
           <p className="text-sm text-gray-500 truncate">{project.path}</p>
+          {project.metadata.remote_origin && (
+            <p className="text-xs text-gray-400 truncate inline-flex items-center gap-1 mt-0.5">
+              <Link size={10} />
+              {project.metadata.remote_origin}
+            </p>
+          )}
         </div>
         <div className="flex gap-1 ml-2">
           <button
@@ -70,6 +76,9 @@ export function ProjectCard({ project, onSelect, onDelete, onRefresh }: Props) {
         <span className="inline-flex items-center gap-1">
           <GitBranch size={12} />
           {project.metadata.default_branch}
+          {project.metadata.branches && (
+            <span className="text-gray-400">({project.metadata.branches.length})</span>
+          )}
         </span>
         <span className="inline-flex items-center gap-1">
           <Clock size={12} />

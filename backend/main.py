@@ -1,3 +1,4 @@
+import asyncio
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
@@ -7,6 +8,9 @@ from models import Project, ProjectCreate, ProjectMetadata
 from storage import load_projects, get_project, add_project, delete_project, update_project
 from analyzer import is_git_repo, analyze_repo, get_readme_content, get_file_tree
 from llm import generate_summary
+from enrichments.git_remote import get_remote_origin
+from enrichments.git_branches import get_branches
+from enrichments.llm_improvements import get_improvements
 
 app = FastAPI(title="Project Index API", version="1.0.0")
 
@@ -51,6 +55,8 @@ async def create_project(body: ProjectCreate):
     # Analyze
     repo_name = Path(path).name
     metadata = analyze_repo(path)
+    metadata.remote_origin = get_remote_origin(path)
+    metadata.branches = get_branches(path)
     readme = get_readme_content(path)
     file_tree = get_file_tree(path)
 
@@ -61,8 +67,12 @@ async def create_project(body: ProjectCreate):
         f"Languages: {', '.join(l.language for l in metadata.languages[:5])}"
     )
 
-    # Generate AI summary
-    llm_result = await generate_summary(repo_name, readme, file_tree, metadata_summary)
+    # Generate AI summary and improvements
+    llm_result, improvements = await asyncio.gather(
+        generate_summary(repo_name, readme, file_tree, metadata_summary),
+        get_improvements(repo_name, readme, file_tree),
+    )
+    metadata.improvements = improvements
 
     project = Project(
         name=repo_name,
@@ -86,6 +96,8 @@ async def refresh_project(project_id: str):
         raise HTTPException(status_code=400, detail="Repository path no longer exists")
 
     metadata = analyze_repo(project.path)
+    metadata.remote_origin = get_remote_origin(project.path)
+    metadata.branches = get_branches(project.path)
     readme = get_readme_content(project.path)
     file_tree = get_file_tree(project.path)
 
@@ -96,9 +108,13 @@ async def refresh_project(project_id: str):
         f"Languages: {', '.join(l.language for l in metadata.languages[:5])}"
     )
 
-    llm_result = await generate_summary(project.name, readme, file_tree, metadata_summary)
+    llm_result, improvements = await asyncio.gather(
+        generate_summary(project.name, readme, file_tree, metadata_summary),
+        get_improvements(project.name, readme, file_tree),
+    )
 
     project.metadata = metadata
+    project.metadata.improvements = improvements
     project.summary = llm_result["summary"]
     project.how_to_run = llm_result["how_to_run"]
     project.last_refreshed = datetime.now().isoformat()

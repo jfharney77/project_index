@@ -51,6 +51,12 @@ async def _call_cerebras(prompt: str) -> str:
         return data["choices"][0]["message"]["content"]
 
 
+async def call_llm(prompt: str) -> str:
+    if PROVIDER == "cerebras":
+        return await _call_cerebras(prompt)
+    return await _call_ollama(prompt)
+
+
 async def generate_summary(
     repo_name: str,
     readme_content: str,
